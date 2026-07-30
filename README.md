@@ -1,6 +1,19 @@
 # AI 产品经理作品集
 
-一个可持续扩展的单页作品集，首个案例是可直接使用的 **OctoAvatar GitHub 头像转换器**。
+一个可持续扩展的 AI 产品经理作品集，首个案例是可直接使用的 **OctoAvatar GitHub 头像转换器**。
+
+## 目录结构
+
+```text
+/
+├── index.html               # 作品集主页
+├── styles.css               # 作品集主页样式
+└── projects/
+    └── octoavatar/
+        ├── index.html       # 头像转换器独立页面
+        ├── styles.css       # 头像转换器样式
+        └── app.js           # 头像转换逻辑
+```
 
 ## 当前内容
 
@@ -27,4 +40,6 @@ python -m http.server 8080
 
 ## 添加新作品
 
-复制 `index.html` 中的 `.featured-project` 或 `.next-project` 结构，新建项目标题、背景、决策、验证结果与体验入口即可。视觉变量集中在 `styles.css` 顶部的 `:root` 中。
+1. 在 `projects/` 下新建独立项目文件夹，例如 `projects/ai-research-assistant/`。
+2. 将该项目的 HTML、CSS、JavaScript 和资源都放在自己的文件夹中。
+3. 在作品集主页 `index.html` 中增加项目介绍，并通过链接或 `iframe` 指向该目录。

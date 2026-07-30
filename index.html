@@ -89,71 +89,12 @@
           </div>
         </div>
 
-        <section class="tool" aria-label="GitHub 头像转换器">
-          <div class="tool-bar">
-            <div class="tool-title">
-              <span class="octo-mark">O</span>
-              <div><strong>OctoAvatar</strong><small>GitHub 头像转换器</small></div>
-            </div>
-            <span class="privacy"><i></i> 图片仅在本地处理</span>
+        <section class="project-embed" aria-label="GitHub 头像转换器在线体验">
+          <div class="embed-bar">
+            <div><span class="octo-mark">O</span><strong>OctoAvatar / LIVE DEMO</strong></div>
+            <a href="./projects/octoavatar/" target="_blank" rel="noopener">在独立页面打开 ↗</a>
           </div>
-
-          <div id="dropzone" class="dropzone">
-            <input id="fileInput" type="file" accept="image/*,.heic,.heif,.avif,.jfif,.svg" hidden>
-            <div class="upload-visual" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4h14v-4"/></svg>
-            </div>
-            <p class="drop-label">DROP AN IMAGE HERE</p>
-            <h4>拖放一张图片，开始转换</h4>
-            <p>自动识别格式、裁剪并压缩为符合 GitHub 使用习惯的 PNG。</p>
-            <button id="pickButton" class="tool-button" type="button">选择图片 <span>↗</span></button>
-            <small>支持 JPG、PNG、WebP、GIF、BMP、SVG、AVIF、HEIC / HEIF</small>
-          </div>
-
-          <div id="editor" class="editor" hidden>
-            <div class="editor-main">
-              <div class="editor-heading">
-                <div><span>STEP 01</span><h4>调整头像</h4></div>
-                <button id="replaceButton" class="plain-button" type="button">更换图片</button>
-              </div>
-              <div class="canvas-wrap" id="canvasWrap">
-                <canvas id="previewCanvas" width="600" height="600"></canvas>
-                <div class="crop-mask" aria-hidden="true"></div>
-              </div>
-              <p class="canvas-tip">拖动调整位置 · 滚轮或滑块缩放</p>
-            </div>
-            <aside class="controls">
-              <div class="editor-heading">
-                <div><span>STEP 02</span><h4>导出设置</h4></div>
-              </div>
-              <label class="control-label" for="zoomRange">缩放 <output id="zoomValue">100%</output></label>
-              <input id="zoomRange" type="range" min="100" max="400" value="100">
-              <div class="button-row">
-                <button id="rotateLeft" class="icon-button" type="button" title="向左旋转">↶<span>左转</span></button>
-                <button id="rotateRight" class="icon-button" type="button" title="向右旋转">↷<span>右转</span></button>
-                <button id="resetButton" class="icon-button" type="button" title="重置">↺<span>重置</span></button>
-              </div>
-              <label class="control-label" for="sizeSelect">输出尺寸</label>
-              <select id="sizeSelect">
-                <option value="500">500 × 500 px（推荐）</option>
-                <option value="800">800 × 800 px</option>
-                <option value="1000">1000 × 1000 px</option>
-                <option value="2000">2000 × 2000 px</option>
-              </select>
-              <label class="control-label">裁剪预览</label>
-              <div class="segmented" role="group" aria-label="裁剪形状">
-                <button class="shape-button active" data-shape="square" type="button">正方形</button>
-                <button class="shape-button" data-shape="circle" type="button">GitHub 圆形</button>
-              </div>
-              <div class="checks">
-                <div><i>✓</i><span>PNG 格式</span><strong>自动</strong></div>
-                <div><i>✓</i><span>文件小于 1 MB</span><strong id="sizeStatus">自动压缩</strong></div>
-                <div><i>✓</i><span>图片不上传服务器</span><strong>本地处理</strong></div>
-              </div>
-              <button id="downloadButton" class="download-button" type="button">下载 GitHub 头像 <span>↓</span></button>
-              <p id="status" class="tool-status" role="status">准备导出</p>
-            </aside>
-          </div>
+          <iframe src="./projects/octoavatar/" title="OctoAvatar GitHub 头像转换器" loading="lazy"></iframe>
         </section>
 
         <div class="case-notes">
@@ -200,7 +141,5 @@
     <a href="#top">回到顶部 ↑</a>
     <span>DESIGNED AS A LIVING PRODUCT</span>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
-  <script src="./app.js"></script>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在浏览器本地将常见图片转换为适合 GitHub 使用的 PNG 头像。">
+  <meta name="theme-color" content="#101828">
+  <title>OctoAvatar · GitHub 头像转换器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="tool-bar">
+      <a class="tool-title" href="../../" target="_top" aria-label="返回朱邦国的作品集">
+        <span class="octo-mark">O</span>
+        <div><strong>OctoAvatar</strong><small>GitHub 头像转换器</small></div>
+      </a>
+      <span class="privacy"><i></i> 图片仅在本地处理</span>
+    </header>
+    <section id="dropzone" class="dropzone">
+      <input id="fileInput" type="file" accept="image/*,.heic,.heif,.avif,.jfif,.svg" hidden>
+      <div class="upload-visual" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4h14v-4"/></svg>
+      </div>
+      <p class="drop-label">DROP AN IMAGE HERE</p>
+      <h1>拖放一张图片，开始转换</h1>
+      <p>自动识别格式、裁剪并压缩为适合 GitHub 使用的 PNG。</p>
+      <button id="pickButton" class="tool-button" type="button">选择图片 <span>↗</span></button>
+      <small>支持 JPG、PNG、WebP、GIF、BMP、SVG、AVIF、HEIC / HEIF</small>
+    </section>
+    <section id="editor" class="editor" hidden>
+      <div class="editor-main">
+        <div class="editor-heading">
+          <div><span>STEP 01</span><h2>调整头像</h2></div>
+          <button id="replaceButton" class="plain-button" type="button">更换图片</button>
+        </div>
+        <div class="canvas-wrap" id="canvasWrap">
+          <canvas id="previewCanvas" width="600" height="600"></canvas>
+          <div class="crop-mask" aria-hidden="true"></div>
+        </div>
+        <p class="canvas-tip">拖动调整位置 · 滚轮或滑块缩放</p>
+      </div>
+      <aside class="controls">
+        <div class="editor-heading">
+          <div><span>STEP 02</span><h2>导出设置</h2></div>
+        </div>
+        <label class="control-label" for="zoomRange">缩放 <output id="zoomValue">100%</output></label>
+        <input id="zoomRange" type="range" min="100" max="400" value="100">
+        <div class="button-row">
+          <button id="rotateLeft" class="icon-button" type="button" title="向左旋转">↶<span>左转</span></button>
+          <button id="rotateRight" class="icon-button" type="button" title="向右旋转">↷<span>右转</span></button>
+          <button id="resetButton" class="icon-button" type="button" title="重置">↺<span>重置</span></button>
+        </div>
+        <label class="control-label" for="sizeSelect">输出尺寸</label>
+        <select id="sizeSelect">
+          <option value="500">500 × 500 px（推荐）</option>
+          <option value="800">800 × 800 px</option>
+          <option value="1000">1000 × 1000 px</option>
+          <option value="2000">2000 × 2000 px</option>
+        </select>
+        <label class="control-label">裁剪预览</label>
+        <div class="segmented" role="group" aria-label="裁剪形状">
+          <button class="shape-button active" data-shape="square" type="button" aria-pressed="true">正方形</button>
+          <button class="shape-button" data-shape="circle" type="button" aria-pressed="false">GitHub 圆形</button>
+        </div>
+        <div class="checks">
+          <div><i>✓</i><span>PNG 格式</span><strong>自动</strong></div>
+          <div><i>✓</i><span>文件小于 1 MB</span><strong id="sizeStatus">自动压缩</strong></div>
+          <div><i>✓</i><span>图片不上传服务器</span><strong>本地处理</strong></div>
+        </div>
+        <button id="downloadButton" class="download-button" type="button">下载 GitHub 头像 <span>↓</span></button>
+        <p id="status" class="tool-status" role="status">准备导出</p>
+      </aside>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
