@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="朱邦国的 AI 产品经理作品集：从真实问题出发，把模糊需求变成可验证的产品。">
+  <meta name="theme-color" content="#101828">
+  <title>朱邦国 · AI 产品经理作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="返回首页">
+      <span class="logo-dot"></span>
+      <span>朱邦国 / AI PM</span>
+    </a>
+    <nav aria-label="主导航">
+      <a href="#work">作品</a>
+      <a href="#method">方法</a>
+      <a href="#about">关于</a>
+    </nav>
+    <a class="header-cta" href="mailto:231300057@smail.nju.edu.cn">联系我 <span>↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>AVAILABLE FOR 2026</span> AI 产品经理机会</p>
+        <h1>把模糊的<br>问题，做成<br><em>可验证的产品。</em></h1>
+        <p class="hero-intro">我关注 AI 能否真正缩短任务路径，而不只是给界面加一个聊天框。这里记录我的产品判断、原型实验和复盘。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#featured">体验最新作品 <span>↓</span></a>
+          <a class="text-link" href="#method">查看我的工作方式 <span>→</span></a>
+        </div>
+      </div>
+      <div class="signal-board" aria-label="产品工作流概览">
+        <div class="signal-top">
+          <span>PRODUCT SIGNAL / 001</span>
+          <span class="live"><i></i> LIVE PROTOTYPE</span>
+        </div>
+        <div class="signal-question">用户真正想完成的任务是什么？</div>
+        <div class="signal-flow">
+          <div><b>01</b><span>发现摩擦</span><small>从具体场景出发</small></div>
+          <i>→</i>
+          <div><b>02</b><span>定义假设</span><small>明确成功标准</small></div>
+          <i>→</i>
+          <div><b>03</b><span>原型验证</span><small>用真实交互回答</small></div>
+        </div>
+        <div class="signal-note">
+          <span>THIS PORTFOLIO IS ALSO A PRODUCT.</span>
+          <span>持续迭代中 ↗</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="能力关键词">
+      <div>AI 产品策略 <i>✦</i> 用户研究 <i>✦</i> 需求定义 <i>✦</i> 快速原型 <i>✦</i> 数据验证 <i>✦</i> 跨团队协作 <i>✦</i></div>
+    </section>
+
+    <section class="work-section" id="work">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">SELECTED WORK / 精选作品</p>
+          <h2>不止讲思路，<br>也把产品做出来。</h2>
+        </div>
+        <p>每个项目都从一个明确的用户任务开始，包含判断依据、关键取舍和可操作的原型。</p>
+      </div>
+
+      <article class="featured-project" id="featured">
+        <div class="project-meta">
+          <div><span>项目</span><strong>OctoAvatar</strong></div>
+          <div><span>角色</span><strong>产品 / 设计 / 原型</strong></div>
+          <div><span>状态</span><strong class="status-live">可在线体验</strong></div>
+          <div><span>年份</span><strong>2026</strong></div>
+        </div>
+        <div class="project-story">
+          <div>
+            <p class="project-number">CASE 001</p>
+            <h3>GitHub 头像<br>一键转换器</h3>
+          </div>
+          <div class="story-copy">
+            <p class="lead">把“头像上传失败”从一个格式问题，变成一次无感的本地转换。</p>
+            <p>用户不需要理解 PNG、尺寸或压缩参数。选择图片、调整位置、下载即可；所有图像处理都在浏览器本地完成。</p>
+            <div class="tags"><span>任务简化</span><span>隐私优先</span><span>浏览器端 AI 工具思路</span></div>
+          </div>
+        </div>
+
+        <section class="tool" aria-label="GitHub 头像转换器">
+          <div class="tool-bar">
+            <div class="tool-title">
+              <span class="octo-mark">O</span>
+              <div><strong>OctoAvatar</strong><small>GitHub 头像转换器</small></div>
+            </div>
+            <span class="privacy"><i></i> 图片仅在本地处理</span>
+          </div>
+
+          <div id="dropzone" class="dropzone">
+            <input id="fileInput" type="file" accept="image/*,.heic,.heif,.avif,.jfif,.svg" hidden>
+            <div class="upload-visual" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4h14v-4"/></svg>
+            </div>
+            <p class="drop-label">DROP AN IMAGE HERE</p>
+            <h4>拖放一张图片，开始转换</h4>
+            <p>自动识别格式、裁剪并压缩为符合 GitHub 使用习惯的 PNG。</p>
+            <button id="pickButton" class="tool-button" type="button">选择图片 <span>↗</span></button>
+            <small>支持 JPG、PNG、WebP、GIF、BMP、SVG、AVIF、HEIC / HEIF</small>
+          </div>
+
+          <div id="editor" class="editor" hidden>
+            <div class="editor-main">
+              <div class="editor-heading">
+                <div><span>STEP 01</span><h4>调整头像</h4></div>
+                <button id="replaceButton" class="plain-button" type="button">更换图片</button>
+              </div>
+              <div class="canvas-wrap" id="canvasWrap">
+                <canvas id="previewCanvas" width="600" height="600"></canvas>
+                <div class="crop-mask" aria-hidden="true"></div>
+              </div>
+              <p class="canvas-tip">拖动调整位置 · 滚轮或滑块缩放</p>
+            </div>
+            <aside class="controls">
+              <div class="editor-heading">
+                <div><span>STEP 02</span><h4>导出设置</h4></div>
+              </div>
+              <label class="control-label" for="zoomRange">缩放 <output id="zoomValue">100%</output></label>
+              <input id="zoomRange" type="range" min="100" max="400" value="100">
+              <div class="button-row">
+                <button id="rotateLeft" class="icon-button" type="button" title="向左旋转">↶<span>左转</span></button>
+                <button id="rotateRight" class="icon-button" type="button" title="向右旋转">↷<span>右转</span></button>
+                <button id="resetButton" class="icon-button" type="button" title="重置">↺<span>重置</span></button>
+              </div>
+              <label class="control-label" for="sizeSelect">输出尺寸</label>
+              <select id="sizeSelect">
+                <option value="500">500 × 500 px（推荐）</option>
+                <option value="800">800 × 800 px</option>
+                <option value="1000">1000 × 1000 px</option>
+                <option value="2000">2000 × 2000 px</option>
+              </select>
+              <label class="control-label">裁剪预览</label>
+              <div class="segmented" role="group" aria-label="裁剪形状">
+                <button class="shape-button active" data-shape="square" type="button">正方形</button>
+                <button class="shape-button" data-shape="circle" type="button">GitHub 圆形</button>
+              </div>
+              <div class="checks">
+                <div><i>✓</i><span>PNG 格式</span><strong>自动</strong></div>
+                <div><i>✓</i><span>文件小于 1 MB</span><strong id="sizeStatus">自动压缩</strong></div>
+                <div><i>✓</i><span>图片不上传服务器</span><strong>本地处理</strong></div>
+              </div>
+              <button id="downloadButton" class="download-button" type="button">下载 GitHub 头像 <span>↓</span></button>
+              <p id="status" class="tool-status" role="status">准备导出</p>
+            </aside>
+          </div>
+        </section>
+
+        <div class="case-notes">
+          <div><span>发现</span><p>格式、尺寸和文件大小是一次性任务，却要求用户先学习规则。</p></div>
+          <div><span>取舍</span><p>不做账号系统，不上传云端；用浏览器能力换取信任与更短路径。</p></div>
+          <div><span>验证</span><p>核心流程收敛为“选择—调整—下载”，结果可直接使用。</p></div>
+        </div>
+      </article>
+
+      <div class="next-project">
+        <div><span>NEXT CASE</span><h3>下一个产品实验，<br>正在路上。</h3></div>
+        <p>这里将继续加入 AI 工作流、知识产品与效率工具案例，并补充用户研究、指标设计和迭代复盘。</p>
+        <span class="plus">＋</span>
+      </div>
+    </section>
+
+    <section class="method-section" id="method">
+      <div class="section-heading inverse">
+        <div><p class="section-kicker">HOW I WORK / 工作方式</p><h2>先确认值得做，<br>再把它做对。</h2></div>
+        <p>AI 让实现变快，也让“做错东西”的成本更隐蔽。我的工作重心，是持续减少产品判断中的不确定性。</p>
+      </div>
+      <div class="method-grid">
+        <article><span>01 / FRAME</span><h3>定义真正的问题</h3><p>区分用户表达的需求与实际任务，写清目标用户、使用场景和成功标准。</p></article>
+        <article><span>02 / PROBE</span><h3>用原型探测答案</h3><p>把关键假设变成可交互原型，用最短路径验证价值、可用性与技术边界。</p></article>
+        <article><span>03 / LEARN</span><h3>让证据推动迭代</h3><p>结合行为数据与定性反馈，判断该继续、调整还是停止，沉淀可复用认知。</p></article>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <p class="section-kicker">ABOUT / 关于朱邦国</p>
+      <div class="about-grid">
+        <h2>产品判断是主线，<br><em>AI 是放大器。</em></h2>
+        <div>
+          <p>我希望参与那些需要同时理解用户、技术和商业的问题：从模糊机会中找到值得验证的方向，再推动它成为真实、可用、可衡量的产品。</p>
+          <a class="button dark" href="mailto:231300057@smail.nju.edu.cn">聊聊合作机会 <span>↗</span></a>
+          <p class="contact-note"><b>231300057@smail.nju.edu.cn</b> · 邮箱来自 GitHub 公开资料</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>朱邦国 · AI PM PORTFOLIO © 2026</span>
+    <a href="#top">回到顶部 ↑</a>
+    <span>DESIGNED AS A LIVING PRODUCT</span>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
