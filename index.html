@@ -113,6 +113,48 @@
         </div>
       </article>
 
+      <article class="featured-project secondary-project" id="markov-lab">
+        <div class="project-meta">
+          <div><span>项目</span><strong>Markov Network Lab</strong></div>
+          <div><span>角色</span><strong>产品 / 交互 / 算法原型</strong></div>
+          <div><span>状态</span><strong class="status-live">可在线体验</strong></div>
+          <div><span>年份</span><strong>2026</strong></div>
+        </div>
+        <div class="project-story">
+          <div>
+            <p class="project-number">CASE 002</p>
+            <h3>马尔可夫网络<br>实验室</h3>
+          </div>
+          <div class="story-copy">
+            <p class="lead">把抽象的概率图模型推导，变成可编辑、可比较的实验过程。</p>
+            <p>学习者可以直接创建无向图、观察联合概率分布，并用 IF / THEN 规则迁移概率质量，理解图结构、条件独立与分布更新之间的关系。</p>
+            <div class="tags"><span>学习产品</span><span>交互可视化</span><span>规则实验</span><span>精确计算</span></div>
+          </div>
+        </div>
+
+        <div class="case-brief" aria-label="马尔可夫网络实验室产品定义">
+          <div><span>目标用户</span><strong>正在学习概率图模型、需要建立直觉的学生与初学者</strong></div>
+          <div><span>核心任务</span><strong>通过一次可操作实验理解图结构与联合分布的对应关系</strong></div>
+          <div><span>关键假设</span><strong>即时反馈和前后对比能降低公式推导带来的认知负担</strong></div>
+          <div><span>成功标准</span><strong>用户能独立建图、应用规则，并解释依赖关系为何改变</strong></div>
+        </div>
+
+        <section class="project-embed markov-embed" aria-label="马尔可夫网络实验室在线体验">
+          <div class="embed-bar">
+            <div><span class="markov-mark" aria-hidden="true"><i></i><i></i><i></i></span><strong>MARKOV NETWORK LAB / LIVE DEMO</strong></div>
+            <a href="./projects/markov-network-lab/" target="_blank" rel="noopener">在独立页面打开 ↗</a>
+          </div>
+          <iframe src="./projects/markov-network-lab/" title="马尔可夫网络实验室" loading="lazy"></iframe>
+        </section>
+
+        <div class="case-notes">
+          <div><span>问题证据</span><p>势函数、归一化常数和条件独立通常分散在公式中，学习者难以看到它们如何共同变化。</p></div>
+          <div><span>MVP 取舍</span><p>聚焦 2–10 个二元变量；不引入账号、云端计算和复杂参数编辑，先验证交互教学价值。</p></div>
+          <div><span>已验证</span><p>建图、精确分布计算、规则迁移、依赖图更新和移动端布局均已完成运行验证。</p></div>
+          <div><span>待验证指标</span><p>实验完成率、概念前后测提升、规则应用错误率，以及从建图到正确解释的用时。</p></div>
+        </div>
+      </article>
+
       <div class="next-project">
         <div><span>NEXT CASE</span><h3>下一个产品实验，<br>正在路上。</h3></div>
         <p>这里将继续加入 AI 工作流、知识产品与效率工具案例，并补充用户研究、指标设计和迭代复盘。</p>
@@ -132,7 +174,7 @@
         <article><span>DISCOVERY / 需求</span><h3>从任务而非功能出发</h3><p>识别用户在格式、规则与隐私上的真实摩擦，定义目标用户、核心任务和成功标准。</p><small>证据：OctoAvatar 产品定义</small></article>
         <article><span>PRD / 方案</span><h3>把假设写成可验证范围</h3><p>明确 MVP 边界、支持格式、异常反馈、隐私约束与浏览器兼容性，不把需求无限扩大。</p><small>证据：项目 README 与交互原型</small></article>
         <article><span>DATA / 指标</span><h3>先定义如何判断成功</h3><p>区分功能测试与用户价值验证，规划完成率、完成时长、首次成功率和失败原因。</p><small>下一步：接入匿名事件统计</small></article>
-        <article><span>AI TECH / 技术</span><h3>理解能力边界与降级</h3><p>当前案例使用浏览器图像处理；后续项目将覆盖 LLM、RAG、Agent 与模型评估场景。</p><small>原则：不用 AI 包装非 AI 问题</small></article>
+        <article><span>AI TECH / 技术</span><h3>理解能力边界与降级</h3><p>从浏览器图像处理到概率图模型精确计算，先理解问题和技术边界，再判断是否需要模型能力。</p><small>证据：两个可运行原型与算法说明</small></article>
         <article><span>PROTOTYPE / 原型</span><h3>用真实交互回答问题</h3><p>从产品判断直接推进到可运行原型，通过桌面端、移动端和异常路径自动化验收。</p><small>证据：在线工具与测试记录</small></article>
         <article><span>ITERATION / 复盘</span><h3>诚实标记已知与未知</h3><p>不虚构用户数据；明确已验证功能、待验证价值及下一轮需要收集的证据。</p><small>状态：持续迭代</small></article>
       </div>

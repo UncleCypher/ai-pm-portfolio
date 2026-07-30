@@ -21,7 +21,12 @@
 
 ```text
 projects/
-└── octoavatar/
+├── octoavatar/
+│   ├── README.md
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+└── markov-network-lab/
     ├── README.md
     ├── index.html
     ├── styles.css

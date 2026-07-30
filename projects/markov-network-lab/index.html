@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>马尔可夫网络实验室</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <p class="eyebrow">MARKOV RANDOM FIELD · EXPERIMENT</p>
+      <h1>马尔可夫网络实验室</h1>
+      <p class="subtitle">生成无向图、构造可行的二元联合概率分布，并即时编辑图结构。</p>
+    </header>
+
+    <section class="workspace">
+      <aside class="panel controls">
+        <h2>生成网络</h2>
+        <p class="hint">所有节点均为二元变量（0 / 1），节点以 a、b、c… 命名。</p>
+        <form id="generate-form">
+          <label>节点数 <input id="node-count" type="number" min="2" max="10" value="5" required /></label>
+          <button type="submit" class="primary">确认节点</button>
+        </form>
+
+        <hr />
+        <h2>点击建边</h2>
+        <p class="hint">在图中依次点击两个节点：不存在的边会被添加，已存在的边会被删除。</p>
+        <p id="edit-message" class="field-note" aria-live="polite">请先确认节点数。</p>
+        <button id="finalize-graph" type="button" class="primary">确认图并生成联合概率分布</button>
+        <button id="start-experiment" type="button" class="start-button">开始实验并冻结原图</button>
+        <button id="unfreeze-experiment" type="button" class="unfreeze-button hidden">解冻并返回编辑</button>
+        <p id="experiment-status" class="field-note">当前处于实验前：可自由修改图结构。</p>
+        <hr />
+        <h2>当前模型</h2>
+        <dl class="stats">
+          <div><dt>节点</dt><dd id="stat-nodes">—</dd></div>
+          <div><dt>边</dt><dd id="stat-edges">—</dd></div>
+          <div><dt>状态数</dt><dd id="stat-states">—</dd></div>
+        </dl>
+      </aside>
+
+      <section class="panel canvas-panel">
+        <div class="panel-title"><h2>无向图 G = (V, E)</h2><span id="graph-caption"></span></div>
+        <svg id="graph" viewBox="0 0 640 460" role="img" aria-label="马尔可夫网络无向图"></svg>
+        <div class="legend"><span class="node-dot"></span>二元随机变量 <span class="line-sample"></span>成对势函数</div>
+      </section>
+
+      <section class="panel distribution-panel">
+        <div class="panel-title"><h2>联合概率分布</h2><span id="normalizer"></span></div>
+        <p class="formula">P(x) = (1 / Z) · ∏<sub>i</sub> ψ<sub>i</sub>(x<sub>i</sub>) · ∏<sub>(i,j)∈E</sub> ψ<sub>ij</sub>(x<sub>i</sub>, x<sub>j</sub>)</p>
+        <p class="hint">每次生成或改边后，系统为当前图重新采样正势函数并精确归一化。</p>
+        <div class="table-wrap"><table><thead><tr><th>变量赋值</th><th>未归一化权重</th><th>联合概率 P(x)</th></tr></thead><tbody id="distribution-body"></tbody></table></div>
+      </section>
+    </section>
+
+    <section id="experiment-area" class="experiment-area hidden">
+      <div class="experiment-heading"><div><p class="eyebrow">EXPERIMENT RUN</p><h2>规则驱动的分布更新</h2></div><p>原始联合分布保持不变，结果分布由概率质量迁移得到。</p></div>
+      <div class="rule-panel panel">
+        <div class="rule-inputs">
+          <span>IF</span><select id="if-node"></select><span>=</span><select id="if-value"><option value="1">1</option><option value="0">0</option></select>
+          <span>THEN</span><select id="then-node"></select><span>=</span><select id="then-value"><option value="1">1</option><option value="0">0</option></select>
+          <button id="apply-rule" type="button" class="primary">应用规则</button>
+        </div>
+        <p id="rule-description" class="field-note">选择规则后，满足 IF 条件的状态概率将转移到对应的 THEN 状态。</p>
+      </div>
+      <div class="comparison-grid">
+        <section class="panel mini-graph"><div class="panel-title"><h2>原始图（冻结）</h2><span>实验前结构</span></div><svg id="original-graph" viewBox="0 0 640 400"></svg></section>
+        <section class="panel mini-graph"><div class="panel-title"><h2>更新后的条件依赖图</h2><span>由新联合分布计算</span></div><svg id="updated-graph" viewBox="0 0 640 400"></svg><p class="hint">若两变量在给定其余所有变量后仍不独立，则连边；橙色边为本次规则涉及的变量对。</p></section>
+      </div>
+      <section class="panel comparison-table-panel"><div class="panel-title"><h2>更新后联合概率分布</h2><span id="probability-check"></span></div><div class="table-wrap"><table><thead><tr><th>变量赋值</th><th>原始 P(x)</th><th>更新后 P′(x)</th><th>变化</th></tr></thead><tbody id="comparison-body"></tbody></table></div></section>
+    </section>
+
+    <section class="panel independence-panel">
+      <div class="panel-title"><h2>逐对边与独立性检验</h2><span id="independence-summary"></span></div>
+      <p class="hint">“独立”按条件独立精确检验：对每一种具有正概率的其余变量赋值 z，验证 P(xᵢ,xⱼ | z) = P(xᵢ | z)P(xⱼ | z)。这正是无向马尔可夫网络的逐对边判据。</p>
+      <div class="table-wrap"><table><thead><tr><th>节点对</th><th>原始图有边</th><th>原始分布条件独立</th><th>更新图有边</th><th>更新分布条件独立</th><th>最大条件偏差</th></tr></thead><tbody id="independence-body"></tbody></table></div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

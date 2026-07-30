@@ -14,3 +14,7 @@ for (const file of ["index.html", "styles.css", "portfolio.js"]) {
 await cp(resolve(root, "projects", "octoavatar"), resolve(output, "projects", "octoavatar"), {
   recursive: true
 });
+
+await cp(resolve(root, "projects", "markov-network-lab"), resolve(output, "projects", "markov-network-lab"), {
+  recursive: true
+});
