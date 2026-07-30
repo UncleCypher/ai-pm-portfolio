@@ -20,6 +20,7 @@
     </a>
     <nav aria-label="主导航">
       <a href="#work">作品</a>
+      <a href="#capability">能力</a>
       <a href="#method">方法</a>
       <a href="#about">关于</a>
     </nav>
@@ -85,8 +86,15 @@
           <div class="story-copy">
             <p class="lead">把“头像上传失败”从一个格式问题，变成一次无感的本地转换。</p>
             <p>用户不需要理解 PNG、尺寸或压缩参数。选择图片、调整位置、下载即可；所有图像处理都在浏览器本地完成。</p>
-            <div class="tags"><span>任务简化</span><span>隐私优先</span><span>浏览器端 AI 工具思路</span></div>
+            <div class="tags"><span>需求分析</span><span>MVP 原型</span><span>隐私优先</span><span>指标设计</span></div>
           </div>
+        </div>
+
+        <div class="case-brief" aria-label="OctoAvatar 产品定义">
+          <div><span>目标用户</span><strong>首次配置或更换 GitHub 头像的用户</strong></div>
+          <div><span>核心任务</span><strong>不学习图片规则，也能得到可直接上传的头像</strong></div>
+          <div><span>关键假设</span><strong>本地自动处理能同时降低操作成本与隐私顾虑</strong></div>
+          <div><span>成功标准</span><strong>一次完成转换，导出文件满足格式与大小要求</strong></div>
         </div>
 
         <section class="project-embed" aria-label="GitHub 头像转换器在线体验">
@@ -98,9 +106,10 @@
         </section>
 
         <div class="case-notes">
-          <div><span>发现</span><p>格式、尺寸和文件大小是一次性任务，却要求用户先学习规则。</p></div>
-          <div><span>取舍</span><p>不做账号系统，不上传云端；用浏览器能力换取信任与更短路径。</p></div>
-          <div><span>验证</span><p>核心流程收敛为“选择—调整—下载”，结果可直接使用。</p></div>
+          <div><span>问题证据</span><p>格式、尺寸和文件大小是一次性任务，却要求用户先学习规则。</p></div>
+          <div><span>MVP 取舍</span><p>不做账号系统，不上传云端；用浏览器能力换取信任与更短路径。</p></div>
+          <div><span>已验证</span><p>上传、调整、格式转换与合规导出链路已通过自动化功能测试。</p></div>
+          <div><span>待验证指标</span><p>任务完成率、平均完成时长、首次导出成功率和失败原因分布。</p></div>
         </div>
       </article>
 
@@ -108,6 +117,24 @@
         <div><span>NEXT CASE</span><h3>下一个产品实验，<br>正在路上。</h3></div>
         <p>这里将继续加入 AI 工作流、知识产品与效率工具案例，并补充用户研究、指标设计和迭代复盘。</p>
         <span class="plus">＋</span>
+      </div>
+    </section>
+
+    <section class="capability-section" id="capability">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">AI PM EVIDENCE / 能力证据</p>
+          <h2>不列技能清单，<br>展示工作证据。</h2>
+        </div>
+        <p>参考 AI 产品经理岗位常见要求，将能力落到具体产物、判断和下一步验证，而不是只写“熟悉”。</p>
+      </div>
+      <div class="capability-grid">
+        <article><span>DISCOVERY / 需求</span><h3>从任务而非功能出发</h3><p>识别用户在格式、规则与隐私上的真实摩擦，定义目标用户、核心任务和成功标准。</p><small>证据：OctoAvatar 产品定义</small></article>
+        <article><span>PRD / 方案</span><h3>把假设写成可验证范围</h3><p>明确 MVP 边界、支持格式、异常反馈、隐私约束与浏览器兼容性，不把需求无限扩大。</p><small>证据：项目 README 与交互原型</small></article>
+        <article><span>DATA / 指标</span><h3>先定义如何判断成功</h3><p>区分功能测试与用户价值验证，规划完成率、完成时长、首次成功率和失败原因。</p><small>下一步：接入匿名事件统计</small></article>
+        <article><span>AI TECH / 技术</span><h3>理解能力边界与降级</h3><p>当前案例使用浏览器图像处理；后续项目将覆盖 LLM、RAG、Agent 与模型评估场景。</p><small>原则：不用 AI 包装非 AI 问题</small></article>
+        <article><span>PROTOTYPE / 原型</span><h3>用真实交互回答问题</h3><p>从产品判断直接推进到可运行原型，通过桌面端、移动端和异常路径自动化验收。</p><small>证据：在线工具与测试记录</small></article>
+        <article><span>ITERATION / 复盘</span><h3>诚实标记已知与未知</h3><p>不虚构用户数据；明确已验证功能、待验证价值及下一轮需要收集的证据。</p><small>状态：持续迭代</small></article>
       </div>
     </section>
 
