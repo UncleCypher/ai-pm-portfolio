@@ -129,17 +129,57 @@
         <h2>产品判断是主线，<br><em>AI 是放大器。</em></h2>
         <div>
           <p>我希望参与那些需要同时理解用户、技术和商业的问题：从模糊机会中找到值得验证的方向，再推动它成为真实、可用、可衡量的产品。</p>
-          <a class="button dark" href="mailto:231300057@smail.nju.edu.cn">聊聊合作机会 <span>↗</span></a>
-          <p class="contact-note"><b>231300057@smail.nju.edu.cn</b> · 邮箱来自 GitHub 公开资料</p>
+          <button class="button dark contact-trigger" id="openContact" type="button">聊聊合作机会 <span>↗</span></button>
+          <p class="contact-note">点击查看我的完整联系方式</p>
         </div>
       </div>
     </section>
   </main>
+
+  <dialog class="contact-dialog" id="contactDialog" aria-labelledby="contactTitle">
+    <div class="contact-dialog-head">
+      <div>
+        <p class="section-kicker">CONTACT / 联系方式</p>
+        <h2 id="contactTitle">找到朱邦国。</h2>
+      </div>
+      <button class="dialog-close" id="closeContact" type="button" aria-label="关闭联系方式">×</button>
+    </div>
+    <p class="contact-intro">欢迎交流 AI 产品、工作机会或值得一起验证的问题。</p>
+    <div class="contact-list">
+      <div class="contact-item">
+        <span>QQ</span>
+        <strong>2289396573</strong>
+        <button type="button" data-copy="2289396573">复制</button>
+      </div>
+      <div class="contact-item">
+        <span>微信</span>
+        <strong>z1308313</strong>
+        <button type="button" data-copy="z1308313">复制</button>
+      </div>
+      <a class="contact-item" href="mailto:231300057@smail.nju.edu.cn">
+        <span>邮箱 / 学校</span>
+        <strong>231300057@smail.nju.edu.cn</strong>
+        <b>写邮件 ↗</b>
+      </a>
+      <a class="contact-item" href="mailto:2289396573@qq.com">
+        <span>邮箱 / QQ</span>
+        <strong>2289396573@qq.com</strong>
+        <b>写邮件 ↗</b>
+      </a>
+      <a class="contact-item contact-github" href="https://github.com/UncleCypher" target="_blank" rel="noopener">
+        <span>GitHub</span>
+        <strong>github.com/UncleCypher</strong>
+        <b>查看主页 ↗</b>
+      </a>
+    </div>
+    <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+  </dialog>
 
   <footer class="site-footer">
     <span>朱邦国 · AI PM PORTFOLIO © 2026</span>
     <a href="#top">回到顶部 ↑</a>
     <span>DESIGNED AS A LIVING PRODUCT</span>
   </footer>
+  <script src="./portfolio.js"></script>
 </body>
 </html>
