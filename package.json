@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "prepare:public": "node scripts/prepare-public.mjs",
-    "predev": "npm run prepare:public",
+    "predev": "node scripts/prepare-public.mjs",
     "dev": "next dev",
-    "prebuild": "npm run prepare:public",
+    "prebuild": "node scripts/prepare-public.mjs",
     "build": "next build",
     "start": "next start"
   },
