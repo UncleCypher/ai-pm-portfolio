@@ -1,15 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  distDir: "dist",
   trailingSlash: true,
-  async rewrites() {
-    return [
-      { source: "/", destination: "/index.html" },
-      {
-        source: "/projects/octoavatar",
-        destination: "/projects/octoavatar/index.html"
-      }
-    ];
-  }
 };
 
 export default nextConfig;
