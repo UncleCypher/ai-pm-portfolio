@@ -92,6 +92,17 @@
           </span>
           <span class="launch-action">进入在线实验 <i>↗</i></span>
         </a>
+        <a class="project-launch-card support-launch" href="./projects/global-support-agent/">
+          <span class="launch-index">PRODUCT 03</span>
+          <span class="launch-visual support-visual" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </span>
+          <span class="launch-copy">
+            <strong>Global Support Agent</strong>
+            <small>全球智能售后诊断系统</small>
+          </span>
+          <span class="launch-action">进入在线原型 <i>↗</i></span>
+        </a>
       </nav>
 
       <article class="featured-project" id="featured">
@@ -178,6 +189,49 @@
         </div>
       </article>
 
+      <article class="featured-project secondary-project" id="global-support-agent">
+        <div class="project-meta">
+          <div><span>项目</span><strong>Global Support Agent</strong></div>
+          <div><span>角色</span><strong>AI 产品 / Agent 设计 / 原型</strong></div>
+          <div><span>状态</span><strong class="status-live">可在线体验</strong></div>
+          <div><span>年份</span><strong>2026</strong></div>
+        </div>
+        <div class="project-story">
+          <div>
+            <p class="project-number">CASE 003</p>
+            <h3>全球智能售后<br>客服 Agent</h3>
+          </div>
+          <div class="story-copy">
+            <p class="lead">把“机器不太正常”这样的自然语言，转化为可追溯、可验证、可安全升级的售后诊断流程。</p>
+            <p>Agent 负责理解与解释，结构化知识、规则和业务系统负责事实与高风险决策。原型展示症状归一化、候选根因、单步排查、危险场景拦截和未知问题转人工。</p>
+            <p class="project-disclaimer">个人概念验证项目，以 MOVA 智能清洁设备为公开案例背景；非 MOVA 委托，未使用其内部数据。</p>
+            <div class="tags"><span>Agent 工作流</span><span>LLM 结构化理解</span><span>安全治理</span><span>系统集成</span></div>
+          </div>
+        </div>
+
+        <div class="case-brief" aria-label="全球智能售后客服 Agent 产品定义">
+          <div><span>目标用户</span><strong>全球消费者、一线客服与售后技术支持人员</strong></div>
+          <div><span>核心任务</span><strong>从模糊描述中识别问题，并给出安全、可执行、可追溯的下一步</strong></div>
+          <div><span>关键假设</span><strong>LLM 理解与受控规则协作，能提升诊断覆盖率而不牺牲安全性</strong></div>
+          <div><span>成功标准</span><strong>危险问题零漏拦截，Top-3 根因命中率与一次解决率达到上线门槛</strong></div>
+        </div>
+
+        <section class="project-embed support-embed" aria-label="全球智能售后客服 Agent 在线体验">
+          <div class="embed-bar">
+            <div><span class="support-mark">A</span><strong>GLOBAL SUPPORT AGENT / LIVE DEMO</strong></div>
+            <a href="./projects/global-support-agent/" target="_blank" rel="noopener">在独立页面打开 ↗</a>
+          </div>
+          <iframe src="./projects/global-support-agent/" title="全球智能售后客服 Agent 交互原型" loading="lazy"></iframe>
+        </section>
+
+        <div class="case-notes">
+          <div><span>问题证据</span><p>传统 FAQ 依赖用户准确描述和预设问题；面对“发烫”“不好用”等开放表达，容易反复追问或错误匹配。</p></div>
+          <div><span>MVP 取舍</span><p>聚焦扫地机器人高频场景；不做退款、拒保、拆机指导和无边界自动执行。</p></div>
+          <div><span>已验证</span><p>完成中文交互、症状归一化、候选根因、危险拦截、未知问题分流及 FastAPI 诊断接口原型。</p></div>
+          <div><span>待生产验证</span><p>需客户知识库、型号与固件数据、历史工单、真实 IoT 接口和人工闭环结果评估准确率。</p></div>
+        </div>
+      </article>
+
       <div class="next-project">
         <div><span>NEXT CASE</span><h3>下一个产品实验，<br>正在路上。</h3></div>
         <p>这里将继续加入 AI 工作流、知识产品与效率工具案例，并补充用户研究、指标设计和迭代复盘。</p>
@@ -197,7 +251,7 @@
         <article><span>DISCOVERY / 需求</span><h3>从任务而非功能出发</h3><p>识别用户在格式、规则与隐私上的真实摩擦，定义目标用户、核心任务和成功标准。</p><small>证据：OctoAvatar 产品定义</small></article>
         <article><span>PRD / 方案</span><h3>把假设写成可验证范围</h3><p>明确 MVP 边界、支持格式、异常反馈、隐私约束与浏览器兼容性，不把需求无限扩大。</p><small>证据：项目 README 与交互原型</small></article>
         <article><span>DATA / 指标</span><h3>先定义如何判断成功</h3><p>区分功能测试与用户价值验证，规划完成率、完成时长、首次成功率和失败原因。</p><small>下一步：接入匿名事件统计</small></article>
-        <article><span>AI TECH / 技术</span><h3>理解能力边界与降级</h3><p>从浏览器图像处理到概率图模型精确计算，先理解问题和技术边界，再判断是否需要模型能力。</p><small>证据：两个可运行原型与算法说明</small></article>
+        <article><span>AI TECH / 技术</span><h3>理解能力边界与降级</h3><p>从浏览器图像处理、概率图计算到受控 Agent 工作流，先理解问题与风险边界，再选择模型、规则或人工处理。</p><small>证据：三个可运行原型与技术说明</small></article>
         <article><span>PROTOTYPE / 原型</span><h3>用真实交互回答问题</h3><p>从产品判断直接推进到可运行原型，通过桌面端、移动端和异常路径自动化验收。</p><small>证据：在线工具与测试记录</small></article>
         <article><span>ITERATION / 复盘</span><h3>诚实标记已知与未知</h3><p>不虚构用户数据；明确已验证功能、待验证价值及下一轮需要收集的证据。</p><small>状态：持续迭代</small></article>
       </div>

@@ -17,7 +17,7 @@
 
 ## 项目组织方式
 
-每个项目都位于 `projects/` 下的独立文件夹中，并拥有自己的页面、代码和 README：
+三个项目在作品集中采用相同层级：均拥有首页产品入口、完整案例说明、可交互原型和独立 README。
 
 ```text
 projects/
@@ -26,12 +26,19 @@ projects/
 │   ├── index.html
 │   ├── styles.css
 │   └── app.js
-└── markov-network-lab/
+├── markov-network-lab/
+│   ├── README.md
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+└── global-support-agent/
     ├── README.md
     ├── index.html
     ├── styles.css
     └── app.js
 ```
+
+其中“全球智能售后客服 Agent”是个人概念验证项目，以 MOVA 智能清洁设备为公开案例背景，非 MOVA 委托，也未使用 MOVA 内部数据。
 
 具体项目的背景、功能、使用方法和技术说明，请查看对应项目目录中的 README。
 

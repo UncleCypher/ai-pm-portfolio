@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="全球智能售后客服 Agent 交互原型，以 MOVA 智能家电公开场景为案例研究。">
+  <title>全球智能售后客服 Agent · 交互原型</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#demo">跳到诊断演示</a>
+
+  <header class="site-header">
+    <a class="back-link" href="../../">← 返回作品集</a>
+    <span>CASE 003 / AI AGENT</span>
+    <a href="./README.md">项目文档 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">GLOBAL AFTER-SALES INTELLIGENCE</p>
+        <h1>全球智能<br><em>售后客服 Agent</em></h1>
+        <p class="intro">把用户模糊的故障描述，转化为安全、可执行、可审计的诊断路径。</p>
+        <div class="hero-tags">
+          <span>LLM 语义归一化</span>
+          <span>安全规则优先</span>
+          <span>人工接管</span>
+        </div>
+      </div>
+      <div class="diagnostic-trace" aria-label="诊断流程">
+        <div><i>01</i><strong>理解问题</strong><small>自然语言 → 标准症状</small></div>
+        <div><i>02</i><strong>先判风险</strong><small>危险问题立即停止自助</small></div>
+        <div><i>03</i><strong>缩小范围</strong><small>一次只验证一个假设</small></div>
+        <div><i>04</i><strong>形成闭环</strong><small>解决、追问或转人工</small></div>
+      </div>
+    </section>
+
+    <aside class="disclaimer">
+      <strong>个人概念验证</strong>
+      <p>本项目以 MOVA 智能家电公开场景为案例研究，未受 MOVA 或其关联公司委托，不代表官方产品或合作项目，也未使用其内部数据。</p>
+    </aside>
+
+    <section class="demo-shell" id="demo">
+      <form class="intake" id="diagnosisForm">
+        <div class="panel-head">
+          <div><span>INPUT</span><h2>描述设备问题</h2></div>
+          <b>交互演示</b>
+        </div>
+
+        <div class="field-row">
+          <label>设备型号
+            <select id="model">
+              <option>P50 Ultra</option>
+              <option>V50 Ultra</option>
+              <option>E30 Ultra</option>
+            </select>
+          </label>
+          <label>服务地区
+            <select id="region">
+              <option>中国大陆</option>
+              <option>美国</option>
+              <option>德国</option>
+              <option>法国</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="message-label">遇到了什么问题？
+          <textarea id="message" required placeholder="例如：机器像无头苍蝇一样乱转，有些房间一直不去"></textarea>
+        </label>
+
+        <div class="quick-cases">
+          <button type="button" data-message="机器像无头苍蝇一样乱转，有些房间一直不去">导航异常</button>
+          <button type="button" data-message="最近没以前好用了，地上的灰总是还在">清洁变差</button>
+          <button type="button" data-message="基站最近不太正常">模糊描述</button>
+          <button type="button" data-message="机器运行一会后特别发烫，已经烫手了">安全问题</button>
+        </div>
+
+        <button class="diagnose-button" type="submit">开始诊断 <span>→</span></button>
+        <p class="demo-note">静态作品集演示使用脱敏规则样例，不调用生产模型、设备或工单系统。</p>
+      </form>
+
+      <section class="result-panel" aria-live="polite">
+        <div class="panel-head">
+          <div><span>OUTPUT</span><h2>诊断轨迹</h2></div>
+          <b id="resultState">等待输入</b>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          <div class="trace-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>从真实描述开始</h3>
+          <p>Agent 会先检查安全风险，再判断问题属于已知故障、需要追问，还是应转交人工。</p>
+        </div>
+
+        <div class="result-content" id="resultContent" hidden>
+          <div class="risk-banner" id="riskBanner">
+            <span id="riskLabel">低风险</span>
+            <strong id="resultTitle">可自助排查</strong>
+            <p id="resultReply"></p>
+          </div>
+
+          <div class="meta-row" id="metaRow"></div>
+
+          <div class="result-block" id="causeBlock">
+            <span class="block-label">可能原因 / HYPOTHESES</span>
+            <div id="causes"></div>
+          </div>
+
+          <div class="result-block" id="actionBlock">
+            <span class="block-label">下一步 / NEXT ACTION</span>
+            <div class="action-card">
+              <small id="actionPurpose"></small>
+              <p id="actionText"></p>
+            </div>
+          </div>
+
+          <div class="result-block" id="choiceBlock" hidden>
+            <span class="block-label">请选择 / CLARIFY</span>
+            <div class="choice-list" id="choices"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="case-study">
+      <div class="section-title">
+        <span>PRODUCT DECISIONS</span>
+        <h2>不是让模型替客服做决定，<br>而是让每一步更可验证。</h2>
+      </div>
+      <div class="decision-grid">
+        <article><b>01</b><h3>LLM 只做理解</h3><p>模型负责把模糊、多语言表达归一化；安全、政策和业务动作由规则与系统决定。</p></article>
+        <article><b>02</b><h3>危险问题优先</h3><p>冒烟、过热、漏电和电池膨胀不进入普通问答，立即提示停用并转人工。</p></article>
+        <article><b>03</b><h3>未知问题不硬猜</h3><p>分类体系外问题保留原始描述，进入未分类工单和知识补充闭环。</p></article>
+        <article><b>04</b><h3>一次验证一个假设</h3><p>避免给用户一整页排查清单，用单步结果持续更新候选原因。</p></article>
+      </div>
+    </section>
+
+    <section class="evidence">
+      <div>
+        <span>已完成 / BUILT</span>
+        <ul>
+          <li>DeepSeek 结构化语义理解接口</li>
+          <li>9 类通用扫地机器人故障</li>
+          <li>安全分流与未知问题承接</li>
+          <li>中文交互页面与引导式追问</li>
+          <li>FastAPI 原型与 25 项自动化测试</li>
+        </ul>
+      </div>
+      <div>
+        <span>待客户数据 / NEEDS CLIENT DATA</span>
+        <ul>
+          <li>正式产品、错误码与维修 SOP</li>
+          <li>脱敏历史工单与最终维修根因</li>
+          <li>IoT、设备日志与固件接口</li>
+          <li>CRM、订单、质保、配件与物流</li>
+        </ul>
+      </div>
+      <div>
+        <span>待生产化 / BEFORE LAUNCH</span>
+        <ul>
+          <li>多轮会话持久化与身份认证</li>
+          <li>知识审核、发布和回滚</li>
+          <li>异步、缓存、审计与监控</li>
+          <li>容器部署、灰度、合规与 SLA</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>朱邦国 · AI PM PORTFOLIO</span>
+    <a href="https://github.com/UncleCypher" target="_blank" rel="noopener">GitHub ↗</a>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

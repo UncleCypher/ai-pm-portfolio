@@ -18,3 +18,7 @@ await cp(resolve(root, "projects", "octoavatar"), resolve(output, "projects", "o
 await cp(resolve(root, "projects", "markov-network-lab"), resolve(output, "projects", "markov-network-lab"), {
   recursive: true
 });
+
+await cp(resolve(root, "projects", "global-support-agent"), resolve(output, "projects", "global-support-agent"), {
+  recursive: true
+});
