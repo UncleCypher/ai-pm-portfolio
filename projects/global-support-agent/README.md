@@ -53,6 +53,9 @@
 
 - 中文交互式诊断页面；
 - DeepSeek OpenAI 兼容接口；
+- 页面内 DeepSeek API Key 配置、连接验证与运行时热切换；
+- 密钥仅保存在服务进程内，模型不可用时自动回退本地规则；
+- 危险问题在模型调用前拦截，不向远程模型发送；
 - Pydantic 结构化模型输出校验；
 - 模型超时和非法输出降级；
 - 9 类通用扫地机器人故障域；
@@ -61,7 +64,7 @@
 - 分类体系外问题承接；
 - FastAPI API 原型；
 - Ruff、mypy 和 pytest 验证；
-- 25 项自动化测试。
+- 28 项自动化测试。
 
 ## 当前边界
 
@@ -104,14 +107,35 @@
 - P50 / P95 响应延迟；
 - 单次诊断成本。
 
+## 运行完整 Agent
+
+在线作品集保留无需后端的静态演示；完整 Agent 位于本目录，可在 Windows PowerShell 中运行：
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.\.venv\Scripts\python.exe -m uvicorn mova_support.api:app --reload --host 127.0.0.1 --port 8000
+```
+
+保持终端窗口开启，然后访问 `http://127.0.0.1:8000`。健康检查地址为 `http://127.0.0.1:8000/health`。不要直接双击打开后端页面 HTML，否则浏览器无法访问 API，可能显示 `Failed to fetch`。
+
+客服页面右上角的“模型 API 设置”支持直接输入 DeepSeek API Key。系统会先验证连接，成功后立即启用；Key 不会写入浏览器存储、项目文件或接口响应，服务重启后需要重新输入。
+
 ## 项目文件
 
 ```text
 global-support-agent/
+├── AGENTS.md
+├── Makefile
+├── pyproject.toml
 ├── README.md
 ├── index.html
 ├── styles.css
-└── app.js
+├── app.js
+├── docs/
+├── scripts/
+├── src/mova_support/
+└── tests/
 ```
 
-在线页面使用原生 HTML、CSS 和 JavaScript，提供脱敏的静态诊断交互演示。
+根目录在线页面使用原生 HTML、CSS 和 JavaScript，提供脱敏的静态诊断交互演示；`src/mova_support/web/index.html` 是连接 FastAPI 的完整客服页面。
