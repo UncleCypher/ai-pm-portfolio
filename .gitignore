@@ -3,3 +3,8 @@ node_modules/
 public/
 dist/
 npm-debug.log*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
